@@ -10,11 +10,4 @@ class Common {
         val VIEWTYPE_PERSON: Int = 1
     }
 
-//    object FUNCTIONS {
-//        fun sortList(list: List<Person>): List<Person> {
-//
-//
-//            })
-//        }
-//    }
 }

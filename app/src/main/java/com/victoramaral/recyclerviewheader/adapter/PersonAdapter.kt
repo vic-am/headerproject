@@ -15,9 +15,9 @@ import com.victoramaral.recyclerviewheader.R
 import com.victoramaral.recyclerviewheader.common.Common
 import com.victoramaral.recyclerviewheader.model.Person
 
-class PersonAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PersonAdapter(val context: Context, var personList: List<Person> = listOf()) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var personList: List<Person> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         var inflater: LayoutInflater? = LayoutInflater.from(context)
@@ -41,7 +41,7 @@ class PersonAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.Vi
     }
 
     override fun getItemViewType(position: Int): Int {
-        return personList[position].viewType
+        return personList[position].viewType!!
     }
 
     override fun getItemCount(): Int {
@@ -68,7 +68,7 @@ class PersonAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.Vi
             val colorGenerator: ColorGenerator = ColorGenerator.MATERIAL
             val drawable: TextDrawable =
                 TextDrawable.builder()
-                    .buildRound(personList[position].name[0].toString(), colorGenerator.randomColor)
+                    .buildRound(personList[position].name?.get(0)?.toString(), colorGenerator.randomColor)
 
             personViewHolder.imagePersonAvatar.setImageDrawable(drawable)
         }

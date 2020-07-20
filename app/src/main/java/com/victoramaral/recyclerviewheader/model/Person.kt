@@ -1,5 +1,5 @@
 package com.victoramaral.recyclerviewheader.model
 
-class Person (var name: String, var position: String, var viewType: Int){
+class Person(var name: String? = null, var position: String? = null, var viewType: Int? = null) {
 
 }
